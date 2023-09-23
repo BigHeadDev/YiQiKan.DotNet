@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="YiQiKan.DotNet.UWP.SplashPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enum="using:YiQiKan.DotNet.Core.Enums"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:YiQiKan.DotNet.UWP"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:vm="using:YiQiKan.DotNet.Core.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding InitCommand}" />
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    <Grid>
+        <Image
+            Width="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Source="Assets/Images/Logo.png" />
+        <ContentControl
+            x:Name="bottomContent"
+            Margin="0,0,0,100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Content="{Binding}"
+            ContentTemplate="{StaticResource SplashInitProcessingTemplate}">
+            <i:Interaction.Behaviors>
+                <core:DataTriggerBehavior Binding="{Binding InitState, Converter={StaticResource EnumToStringConverter}}" Value="Processing">
+                    <core:ChangePropertyAction
+                        PropertyName="ContentTemplate"
+                        TargetObject="{Binding ElementName=bottomContent}"
+                        Value="{StaticResource SplashInitProcessingTemplate}" />
+                </core:DataTriggerBehavior>
+                <core:DataTriggerBehavior Binding="{Binding InitState, Converter={StaticResource EnumToStringConverter}}" Value="Failed">
+                    <core:ChangePropertyAction
+                        PropertyName="ContentTemplate"
+                        TargetObject="{Binding ElementName=bottomContent}"
+                        Value="{StaticResource InitFailedTemplate}" />
+                </core:DataTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </ContentControl>
+    </Grid>
+</Page>

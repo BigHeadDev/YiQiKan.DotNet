@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <LangVersion>10.0</LangVersion>
+	  <ImplicitUsings>disable</ImplicitUsings>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YiQiKan.DotNet.DataBase\YiQiKan.DotNet.DataBase.csproj" />
+    <ProjectReference Include="..\YiQiKan.DotNet.Service\YiQiKan.DotNet.Service.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YiQiKan.DotNet.UWP.Converters"
+    xmlns:mscontrols="using:Microsoft.Toolkit.Uwp.UI.Converters">
+    <local:EnumToStringConverter x:Key="EnumToStringConverter" />
+    <local:MainNavMenuInvokedItemParamsConverter x:Key="MainNavMenuInvokedItemParamsConverter" />
+    <local:TopbannerItemClickParamsConverter x:Key="TopbannerItemClickParamsConverter" />
+    <local:HomePivotSelectionChangedParamsConverter x:Key="HomePivotSelectionChangedParamsConverter" />
+    <local:AutoSuggestBoxQuerySubmittedEventArgsConverter x:Key="AutoSuggestBoxQuerySubmittedEventArgsConverter" />
+    <local:ScoreToVisibilityConverter x:Key="ScoreToVisibilityConverter" />
+    <local:ItemClickEventArgsConverter x:Key="ItemClickEventArgsConverter" />
+    <local:TvNumberUpdateInfoConverter x:Key="TvNumberUpdateInfoConverter" />
+    <local:StreamToBitmapSourceConverter x:Key="StreamToBitmapSourceConverter" />
+
+    <mscontrols:BoolNegationConverter x:Key="BoolNegationConverter" />
+</ResourceDictionary>

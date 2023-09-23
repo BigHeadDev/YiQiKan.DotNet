@@ -1,0 +1,35 @@
+﻿<Application
+    x:Class="YiQiKan.DotNet.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:local="using:YiQiKan.DotNet.UWP">
+    <Application.Resources>
+        <controls:XamlControlsResources>
+            <controls:XamlControlsResources.MergedDictionaries>
+
+                <!--  Other app resources here  -->
+                <ResourceDictionary>
+                    <ResourceDictionary.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Light" Source="/Controls/Themes/Light.xaml" />
+                        <ResourceDictionary x:Key="Dark" Source="/Controls/Themes/Dark.xaml" />
+                    </ResourceDictionary.ThemeDictionaries>
+                </ResourceDictionary>
+                <ResourceDictionary Source="/Converters/Converters.xaml" />
+                <ResourceDictionary Source="/Controls/Themes/Pivot.xaml" />
+                <ResourceDictionary Source="/Controls/Themes/Generic.xaml" />
+
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/DataTemplates/ItemTemplates.xaml" />
+                        <ResourceDictionary Source="/DataTemplates/HomeTemplates.xaml" />
+                        <ResourceDictionary Source="/DataTemplates/CommonTemplates.xaml" />
+                        <ResourceDictionary Source="/DataTemplates/SplashTemplates.xaml" />
+                        <ResourceDictionary Source="/DataTemplates/AccountTemplates.xaml" />
+                        <ResourceDictionary Source="/DataTemplates/VideoTemplates.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </controls:XamlControlsResources.MergedDictionaries>
+        </controls:XamlControlsResources>
+    </Application.Resources>
+</Application>

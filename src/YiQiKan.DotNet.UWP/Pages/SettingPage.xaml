@@ -1,0 +1,143 @@
+﻿<Page
+    x:Class="YiQiKan.DotNet.UWP.Pages.SettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:community="using:CommunityToolkit.Labs.WinUI"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:YiQiKan.DotNet.UWP.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <StackPanel Spacing="10">
+                <TextBlock x:Uid="normalTextBlock" FontWeight="Bold" />
+                <community:SettingsCard x:Uid="themeSettingsCard">
+                    <community:SettingsCard.HeaderIcon>
+                        <SymbolIcon Symbol="FontColor" />
+                    </community:SettingsCard.HeaderIcon>
+                    <ComboBox
+                        DisplayMemberPath="Value"
+                        ItemsSource="{Binding Themes}"
+                        SelectedIndex="{Binding SelectedThemeIndex}"
+                        SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" />
+                </community:SettingsCard>
+                <community:SettingsCard x:Uid="cacheSettingsCard">
+                    <community:SettingsCard.HeaderIcon>
+                        <SymbolIcon Symbol="Delete" />
+                    </community:SettingsCard.HeaderIcon>
+                    <Button x:Uid="cacheButton" Command="{Binding ClearCacheCommand}" />
+                </community:SettingsCard>
+                <TextBlock x:Uid="dangerTextBlock" FontWeight="Bold" />
+                <community:SettingsCard x:Uid="sourceSettingsCard">
+                    <community:SettingsCard.HeaderIcon>
+                        <SymbolIcon Symbol="Globe" />
+                    </community:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Uid="yqkHyperlinkButton" NavigateUri="https://yqk.app" />
+                </community:SettingsCard>
+                <community:SettingsExpander x:Uid="adSettingsExpander">
+                    <community:SettingsExpander.HeaderIcon>
+                        <SymbolIcon Symbol="DisableUpdates" />
+                    </community:SettingsExpander.HeaderIcon>
+                    <community:SettingsExpander.Items>
+                        <community:SettingsCard>
+                            <community:SettingsCard.Header>
+                                <TextBlock x:Uid="adTextBlock" Margin="20" />
+                            </community:SettingsCard.Header>
+                        </community:SettingsCard>
+                    </community:SettingsExpander.Items>
+                </community:SettingsExpander>
+                <community:SettingsExpander x:Uid="warnSettingsExpander">
+                    <community:SettingsExpander.HeaderIcon>
+                        <SymbolIcon Symbol="Important" />
+                    </community:SettingsExpander.HeaderIcon>
+                    <community:SettingsExpander.Items>
+                        <community:SettingsCard>
+                            <community:SettingsCard.Header>
+                                <StackPanel>
+                                    <TextBlock
+                                        x:Uid="warnTitle"
+                                        Margin="10,5,10,0"
+                                        Foreground="Red" />
+                                    <TextBlock
+                                        x:Uid="warnSubTitle"
+                                        Margin="20"
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </community:SettingsCard.Header>
+                        </community:SettingsCard>
+                    </community:SettingsExpander.Items>
+                </community:SettingsExpander>
+                <TextBlock x:Uid="aboutTextBlock" FontWeight="Bold" />
+                <community:SettingsExpander x:Uid="nugetSettingsExpander">
+                    <community:SettingsExpander.HeaderIcon>
+                        <SymbolIcon Symbol="Emoji" />
+                    </community:SettingsExpander.HeaderIcon>
+                    <community:SettingsExpander.Items>
+                        <community:SettingsCard>
+                            <community:SettingsCard.Header>
+                                <StackPanel Margin="20">
+                                    <HyperlinkButton Content="Microsoft.UI.Xaml" NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
+                                    <HyperlinkButton Content="Windows Community Toolkit" NavigateUri="https://github.com/CommunityToolkit/WindowsCommunityToolkit" />
+                                    <HyperlinkButton Content=".NET Community Toolkit" NavigateUri="https://github.com/CommunityToolkit/dotnet" />
+                                </StackPanel>
+                            </community:SettingsCard.Header>
+                        </community:SettingsCard>
+                    </community:SettingsExpander.Items>
+                </community:SettingsExpander>
+                <community:SettingsExpander x:Name="giftSettingExpander" x:Uid="giftSettingsExpander">
+                    <community:SettingsExpander.HeaderIcon>
+                        <SymbolIcon Symbol="OutlineStar" />
+                    </community:SettingsExpander.HeaderIcon>
+                    <community:SettingsExpander.ItemTemplate>
+                        <DataTemplate>
+                            <community:SettingsCard Description="{Binding Description}" Header="{Binding Title}">
+                                <community:SettingsCard.HeaderIcon>
+                                    <muxc:ImageIcon Source="{Binding Image}" />
+                                </community:SettingsCard.HeaderIcon>
+                                <Button Command="{Binding PurchaseGiftCommand}" CommandParameter="{Binding Id}">
+                                    <TextBlock>
+                                        <Run x:Uid="GiftTextblock" />
+                                        <Run Text="{Binding Price}" />
+                                    </TextBlock>
+                                </Button>
+                            </community:SettingsCard>
+                        </DataTemplate>
+                    </community:SettingsExpander.ItemTemplate>
+                </community:SettingsExpander>
+                <community:SettingsCard x:Uid="storeSettingsCard">
+                    <community:SettingsCard.HeaderIcon>
+                        <SymbolIcon Symbol="Like" />
+                    </community:SettingsCard.HeaderIcon>
+                    <community:SettingsCard.Description>
+                        <HyperlinkButton x:Uid="storeHyperlinkButton" Click="HyperlinkButton_Click" />
+                    </community:SettingsCard.Description>
+                    <Button x:Uid="storeButton" Click="Button_Click" />
+                </community:SettingsCard>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Opacity="0.5">
+            <TextBlock HorizontalAlignment="Center">
+                <Run x:Name="txtName" />
+                <Run Text=" For UWP " />
+                <Run x:Name="txtVersion" />
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center">
+                <Run Text="©" />
+                <Run x:Name="txtYear" />
+                <Run Text=" @" />
+                <Run x:Name="txtAuthor" />
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

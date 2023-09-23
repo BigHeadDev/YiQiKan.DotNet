@@ -1,0 +1,131 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:YiQiKan.DotNet.UWP.Controls"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI">
+    <DataTemplate x:Key="NotLoggedInTemplate">
+        <Grid>
+            <Image Source="https://m.yqktv888.com/dl/img/pc.png" />
+            <Border>
+                <Border.Background>
+                    <media:BackdropBlurBrush Amount="5" />
+                </Border.Background>
+                <Button
+                    Padding="20,10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{Binding ShowLoginDialogCommand}"
+                    Style="{StaticResource ButtonRevealStyle}">
+                    <StackPanel>
+                        <Image
+                            Width="50"
+                            Height="50"
+                            Margin="5"
+                            Source="/Assets/Images/Logo.png" />
+                        <TextBlock x:Uid="LoginTipTextBlcok" />
+                    </StackPanel>
+                </Button>
+            </Border>
+
+
+        </Grid>
+
+    </DataTemplate>
+    <DataTemplate x:Key="LoggedInTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                HorizontalAlignment="Left"
+                Orientation="Horizontal"
+                Spacing="10">
+                <Image MaxHeight="140" Source="{Binding UserInfo.userHead}" />
+                <StackPanel
+                    Margin="10,0"
+                    VerticalAlignment="Center"
+                    Spacing="5">
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="23"
+                        FontWeight="Bold"
+                        Text="{Binding UserInfo.nickname}" />
+                    <TextBlock>
+                        <Run x:Uid="TextBlockAccount" />
+                        <Run Text="{Binding UserInfo.userId}" />
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <Button
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Command="{Binding LogoutCommand}"
+                Style="{StaticResource AccentButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Uid="TextBlockLogout" Margin="5,0" />
+                    <SymbolIcon Symbol="BlockContact" />
+                </StackPanel>
+            </Button>
+            <ScrollViewer Grid.Row="1">
+                <StackPanel>
+                    <controls:TransitionsAdaptiveGridView
+                        x:Uid="GridViewHistory"
+                        Margin="10"
+                        HorizontalContentAlignment="Center"
+                        DesiredWidth="180"
+                        IsItemClickEnabled="True"
+                        ItemClickCommand="{Binding ItemClickCommand}"
+                        ItemTemplate="{StaticResource VideoTemplate}"
+                        ItemsSource="{Binding PreviewHostoryItems.items}"
+                        SelectionMode="None"
+                        StretchContentForSingleRow="False">
+                        <controls:TransitionsAdaptiveGridView.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0,10">
+                                    <TextBlock FontSize="20" Text="{Binding}" />
+                                    <Button
+                                        x:Uid="ButtonMore"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        ui:FrameworkElementExtensions.AncestorType="ContentControl"
+                                        Command="{Binding (ui:FrameworkElementExtensions.Ancestor).DataContext.GetMoreHistoryCommand, RelativeSource={RelativeSource Mode=Self}, Mode=TwoWay}" />
+                                </Grid>
+                            </DataTemplate>
+                        </controls:TransitionsAdaptiveGridView.HeaderTemplate>
+                    </controls:TransitionsAdaptiveGridView>
+                    <controls:TransitionsAdaptiveGridView
+                        x:Name="grid"
+                        x:Uid="GridViewCollection"
+                        Margin="10"
+                        HorizontalContentAlignment="Center"
+                        DesiredWidth="180"
+                        IsItemClickEnabled="True"
+                        ItemClickCommand="{Binding ItemClickCommand}"
+                        ItemTemplate="{StaticResource VideoTemplate}"
+                        ItemsSource="{Binding PreviewCollectionItems.items}"
+                        SelectionMode="None"
+                        StretchContentForSingleRow="False">
+                        <controls:TransitionsAdaptiveGridView.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0,10">
+                                    <TextBlock FontSize="20" Text="{Binding}" />
+                                    <Button
+                                        x:Uid="ButtonMore"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        ui:FrameworkElementExtensions.AncestorType="ContentControl"
+                                        Command="{Binding (ui:FrameworkElementExtensions.Ancestor).DataContext.GetMoreCollectionCommand, RelativeSource={RelativeSource Mode=Self}, Mode=TwoWay}" />
+                                </Grid>
+                            </DataTemplate>
+                        </controls:TransitionsAdaptiveGridView.HeaderTemplate>
+                    </controls:TransitionsAdaptiveGridView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

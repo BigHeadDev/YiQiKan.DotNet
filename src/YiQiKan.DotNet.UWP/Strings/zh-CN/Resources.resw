@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutTextBlock.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AccountNavigationViewItem.Content" xml:space="preserve">
+    <value>我的</value>
+  </data>
+  <data name="adSettingsExpander.Description" xml:space="preserve">
+    <value>请勿相信视频中的任何广告</value>
+  </data>
+  <data name="adSettingsExpander.Header" xml:space="preserve">
+    <value>杜绝广告</value>
+  </data>
+  <data name="adTextBlock.Text" xml:space="preserve">
+    <value>请勿相信视频内所有的黄赌毒植入广告！
+拒绝诈骗！从我做起！
+
+另外~去广告的接口正在开发中，敬请期待~</value>
+  </data>
+  <data name="ButtonGetCode.Content" xml:space="preserve">
+    <value>发送验证码</value>
+  </data>
+  <data name="ButtonMore.Content" xml:space="preserve">
+    <value>查看更多🔥</value>
+  </data>
+  <data name="cacheButton.Content" xml:space="preserve">
+    <value>清除缓存</value>
+  </data>
+  <data name="cacheSettingsCard.Description" xml:space="preserve">
+    <value>清除数据缓存之后，本地的播放历史进度、图片数据、视频数据将全部清空</value>
+  </data>
+  <data name="cacheSettingsCard.Header" xml:space="preserve">
+    <value>数据缓存</value>
+  </data>
+  <data name="CodeLoginPivotItem.Header" xml:space="preserve">
+    <value>验证码登录</value>
+  </data>
+  <data name="CodeTextBlock.Text" xml:space="preserve">
+    <value>验证码：</value>
+  </data>
+  <data name="CodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>请输入短信验证码</value>
+  </data>
+  <data name="dangerTextBlock.Text" xml:space="preserve">
+    <value>风险</value>
+  </data>
+  <data name="giftSettingsExpander.Description" xml:space="preserve">
+    <value>免费软件，捐赠随意</value>
+  </data>
+  <data name="giftSettingsExpander.Header" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="GiftTextblock.Text" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="GridViewCollection.Header" xml:space="preserve">
+    <value>🌟我的收藏</value>
+  </data>
+  <data name="GridViewHistory.Header" xml:space="preserve">
+    <value>🕓播放历史</value>
+  </data>
+  <data name="GuessYouLikeExpander.Header" xml:space="preserve">
+    <value>相关推荐</value>
+  </data>
+  <data name="HomeNavigationViewItem.Content" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="ImageCodeTextBox.PlaceholderText" xml:space="preserve">
+    <value>请输入图形验证码</value>
+  </data>
+  <data name="InitFailedTextBlock.Text" xml:space="preserve">
+    <value>初始化失败！请检查网络之后再重新尝试</value>
+  </data>
+  <data name="InitTextBlock.Text" xml:space="preserve">
+    <value>正在初始化，请稍后</value>
+  </data>
+  <data name="IntrouduceTextBlock.Text" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="LoginContentDialog.PrimaryButtonText" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="LoginTipTextBlcok.Text" xml:space="preserve">
+    <value>立即登录，多端同步</value>
+  </data>
+  <data name="normalTextBlock.Text" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="nugetSettingsExpander.Description" xml:space="preserve">
+    <value>❤️感谢以下作品为开源做出的贡献❤️</value>
+  </data>
+  <data name="nugetSettingsExpander.Header" xml:space="preserve">
+    <value>依赖</value>
+  </data>
+  <data name="PasswordPivotItem.Header" xml:space="preserve">
+    <value>密码登录</value>
+  </data>
+  <data name="PasswordTextBlock.Text" xml:space="preserve">
+    <value>    密码：</value>
+  </data>
+  <data name="PasswordTextBox.PlaceholderText" xml:space="preserve">
+    <value>请输入密码</value>
+  </data>
+  <data name="PhoneTextBlock.Text" xml:space="preserve">
+    <value>手机号：</value>
+  </data>
+  <data name="PhoneTextBox.PlaceholderText" xml:space="preserve">
+    <value>请输入手机号</value>
+  </data>
+  <data name="PrivacyHyperlinkButton.Content" xml:space="preserve">
+    <value>用户协议 &amp; 隐私政策</value>
+  </data>
+  <data name="PrivacyTextBlock.Text" xml:space="preserve">
+    <value>已阅读并同意</value>
+  </data>
+  <data name="RankButton.Content" xml:space="preserve">
+    <value>🔥</value>
+  </data>
+  <data name="SearchRankTeachingTip.Title" xml:space="preserve">
+    <value>搜索排行榜🏆</value>
+  </data>
+  <data name="SettingNavigationViewItem.Content" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="sourceSettingsCard.Description" xml:space="preserve">
+    <value>第三方App：一起看 https://yqk.app</value>
+  </data>
+  <data name="sourceSettingsCard.Header" xml:space="preserve">
+    <value>数据源</value>
+  </data>
+  <data name="storeButton.Content" xml:space="preserve">
+    <value>立即评价</value>
+  </data>
+  <data name="storeHyperlinkButton.Content" xml:space="preserve">
+    <value>微软商店</value>
+  </data>
+  <data name="storeSettingsCard.Header" xml:space="preserve">
+    <value>赏赐好评</value>
+  </data>
+  <data name="SuggestBox.PlaceholderText" xml:space="preserve">
+    <value>输入片名、主演或导演</value>
+  </data>
+  <data name="TextBlockAccount.Text" xml:space="preserve">
+    <value>账号:     </value>
+  </data>
+  <data name="TextBlockLogout.Text" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="TextBlockRetry.Text" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="themeSettingsCard.Description" xml:space="preserve">
+    <value>更换软件UI显示颜色</value>
+  </data>
+  <data name="themeSettingsCard.Header" xml:space="preserve">
+    <value>主题设置</value>
+  </data>
+  <data name="warnSettingsExpander.Description" xml:space="preserve">
+    <value>数据来源第三方App，仅供学习，请在安装后24小时内删除，后果自负</value>
+  </data>
+  <data name="warnSettingsExpander.Header" xml:space="preserve">
+    <value>软件使用声明</value>
+  </data>
+  <data name="warnSubTitle.Text" xml:space="preserve">
+    <value>1，软件是【抓包】了一个名叫“一起看”的视频App，通过.Net实现的UWP应用程序，请低调使用
+2，本软件所有视频和图片均来自https://yqk.app，只提供UI显示，并不提供资源存储，也不参与录制、上传、版权归原创者所有
+3，此软件所引起的风险都由原App开发商（https://yqk.app）承担，此软件开发者不负任何法律责任
+4，请低调使用
+5，软件随时可能下架，后续将开源到github，请保持关注
+6，使用本App，默认接受并认可以上所有说明
+</value>
+  </data>
+  <data name="warnTitle.Text" xml:space="preserve">
+    <value>数据来源第三方App，仅供学习，请在安装后24小时内删除，后果自负</value>
+  </data>
+  <data name="yqkHyperlinkButton.Content" xml:space="preserve">
+    <value>原App官网</value>
+  </data>
+</root>

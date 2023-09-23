@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="YiQiKan.DotNet.UWP.Pages.VideoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:YiQiKan.DotNet.UWP.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:vm="using:YiQiKan.DotNet.Core.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:VideoViewModel}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding InitCommand}" />
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    <ContentControl
+        x:Name="contentControl"
+        HorizontalContentAlignment="Stretch"
+        VerticalContentAlignment="Stretch"
+        Content="{Binding}"
+        ContentTemplate="{StaticResource InitProcessingTemplate}">
+        <i:Interaction.Behaviors>
+            <core:DataTriggerBehavior Binding="{Binding InitState, Converter={StaticResource EnumToStringConverter}}" Value="Processing">
+                <core:ChangePropertyAction
+                    PropertyName="ContentTemplate"
+                    TargetObject="{Binding ElementName=contentControl}"
+                    Value="{StaticResource InitProcessingTemplate}" />
+            </core:DataTriggerBehavior>
+            <core:DataTriggerBehavior Binding="{Binding InitState, Converter={StaticResource EnumToStringConverter}}" Value="Failed">
+                <core:ChangePropertyAction
+                    PropertyName="ContentTemplate"
+                    TargetObject="{Binding ElementName=contentControl}"
+                    Value="{StaticResource InitFailedTemplate}" />
+            </core:DataTriggerBehavior>
+            <core:DataTriggerBehavior Binding="{Binding InitState, Converter={StaticResource EnumToStringConverter}}" Value="Success">
+                <core:ChangePropertyAction
+                    PropertyName="ContentTemplate"
+                    TargetObject="{Binding ElementName=contentControl}"
+                    Value="{StaticResource VideoDetailInitSuccessTemplate}" />
+            </core:DataTriggerBehavior>
+        </i:Interaction.Behaviors>
+    </ContentControl>
+</Page>

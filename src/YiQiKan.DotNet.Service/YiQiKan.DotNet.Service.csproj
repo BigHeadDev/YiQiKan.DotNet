@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <LangVersion>10.0</LangVersion>
+	  <ImplicitUsings>disable</ImplicitUsings>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YiQiKan.DotNet.Model\YiQiKan.DotNet.Model.csproj" />
+    <ProjectReference Include="..\YiQiKan.DotNet.Utils\YiQiKan.DotNet.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

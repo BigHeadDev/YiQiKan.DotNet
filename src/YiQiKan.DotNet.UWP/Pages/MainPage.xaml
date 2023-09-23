@@ -1,0 +1,122 @@
+﻿<Page
+    x:Class="YiQiKan.DotNet.UWP.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="YiQiKan.DotNet.UWP.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:vm="using:YiQiKan.DotNet.Core.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Thickness x:Key="NavigationViewHeaderMargin">10</Thickness>
+        <Thickness x:Key="NavigationViewContentMargin">0,0,0,0</Thickness>
+        <Thickness x:Key="NavigationViewMinimalHeaderMargin">10</Thickness>
+    </Page.Resources>
+    <Grid>
+        <muxc:NavigationView
+            x:Name="NavigationViewControl"
+            AlwaysShowHeader="False"
+            Canvas.ZIndex="0"
+            Header="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem.Content}"
+            IsBackButtonVisible="Collapsed"
+            IsBackEnabled="{Binding ElementName=contentFrame, Path=CanGoBack}"
+            IsPaneOpen="{Binding App.IsMenuOpen, Mode=TwoWay}"
+            IsPaneToggleButtonVisible="False"
+            IsSettingsVisible="False"
+            PaneDisplayMode="Auto"
+            SelectedItem="{Binding ElementName=contentFrame, Path=Content}">
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemInvoked">
+                    <core:InvokeCommandAction Command="{Binding ItemInvokedCommand}" InputConverter="{StaticResource MainNavMenuInvokedItemParamsConverter}" />
+                </core:EventTriggerBehavior>
+                <core:EventTriggerBehavior EventName="BackRequested">
+                    <core:CallMethodAction MethodName="GoBack" TargetObject="{Binding ElementName=contentFrame}" />
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem
+                    x:Name="menu"
+                    x:Uid="HomeNavigationViewItem"
+                    IsSelected="True"
+                    Tag="HomePage">
+                    <muxc:NavigationViewItem.Icon>
+                        <muxc:ImageIcon x:Name="icon" Source="/Assets/Images/Home.png" />
+                    </muxc:NavigationViewItem.Icon>
+                    <i:Interaction.Behaviors>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menu, Path=IsSelected}" Value="true">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=icon}"
+                                Value="/Assets/Images/Home_Hover.png" />
+                        </core:DataTriggerBehavior>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menu, Path=IsSelected}" Value="false">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=icon}"
+                                Value="/Assets/Images/Home.png" />
+                        </core:DataTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.MenuItems>
+            <muxc:NavigationView.FooterMenuItems>
+                <muxc:NavigationViewItem
+                    x:Name="menuAccount"
+                    x:Uid="AccountNavigationViewItem"
+                    Tag="AccountPage">
+                    <muxc:NavigationViewItem.Icon>
+                        <muxc:ImageIcon x:Name="iconAccount" Source="/Assets/Images/Account.png" />
+                    </muxc:NavigationViewItem.Icon>
+                    <i:Interaction.Behaviors>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menuAccount, Path=IsSelected}" Value="true">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=iconAccount}"
+                                Value="/Assets/Images/Account_Hover.png" />
+                        </core:DataTriggerBehavior>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menuAccount, Path=IsSelected}" Value="false">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=iconAccount}"
+                                Value="/Assets/Images/Account.png" />
+                        </core:DataTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    x:Name="menuSetting"
+                    x:Uid="SettingNavigationViewItem"
+                    Tag="SettingPage">
+                    <muxc:NavigationViewItem.Icon>
+                        <muxc:ImageIcon
+                            x:Name="iconSetting"
+                            Width="50"
+                            Height="50"
+                            Source="/Assets/Images/Setting.png" />
+                    </muxc:NavigationViewItem.Icon>
+                    <i:Interaction.Behaviors>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menuSetting, Path=IsSelected}" Value="true">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=iconSetting}"
+                                Value="/Assets/Images/Setting_Hover.png" />
+                        </core:DataTriggerBehavior>
+                        <core:DataTriggerBehavior Binding="{Binding ElementName=menuSetting, Path=IsSelected}" Value="false">
+                            <core:ChangePropertyAction
+                                PropertyName="Source"
+                                TargetObject="{Binding ElementName=iconSetting}"
+                                Value="/Assets/Images/Setting.png" />
+                        </core:DataTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.FooterMenuItems>
+            <Grid>
+                <Frame x:Name="contentFrame" />
+            </Grid>
+        </muxc:NavigationView>
+    </Grid>
+</Page>
